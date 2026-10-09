@@ -32,7 +32,7 @@ Read the full file for any principle you apply. Each entry names when it applies
 - **Prove it works** ([prove-it-works.md](principles/prove-it-works.md)). Before you say done. Check the real artifact: run the app, read the value, inspect the diff. "It compiles" is not proof.
 - **Fix root causes** ([fix-root-causes.md](principles/fix-root-causes.md)). Debugging. Reproduce first, ask why until you reach the cause, no silencing guards. When two fixes fail the same way, attack the shared premise.
 - **Sequence verifiable units** ([sequence-verifiable-units.md](principles/sequence-verifiable-units.md)). Multi-step work and commit order. Small units, each ending in a check. Failing test first, fix on top.
-- **Test behavior, not implementation** ([test-behavior-not-implementation.md](principles/test-behavior-not-implementation.md)). Writing, changing, or keeping a test. Assert a literal observed result. If the test still passes when every import returns `undefined`, rewrite or delete it.
+- **Test behavior, not implementation** ([test-behavior-not-implementation.md](principles/test-behavior-not-implementation.md)). Writing, changing, or keeping a test. Assert a literal observed result. If the test still passes when every import returns an empty value, rewrite or delete it.
 - **Explain the number** ([explain-the-number.md](principles/explain-the-number.md)). Before you trust or report a measured number. Name the limiter and rule out that it measured something else.
 
 ## Working as an agent

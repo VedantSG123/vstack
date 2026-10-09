@@ -16,7 +16,7 @@ The files or diff the caller names. Otherwise the current diff against the base 
 - License or legal headers.
 - Behavior forced by something outside our control (a browser bug, a platform quirk, an upstream library bug, a protocol), with a link to the issue when one exists.
 - Doc comments that define a public API contract: exported functions of a library, a CLI's command help.
-- `// prettier-ignore`, and lint suppressions for rules that are style-only.
+- Formatter-ignore directives, and lint suppressions for rules that are style-only.
 - Links to an issue or design doc that explains a constraint the code cannot express.
 
 If you are not sure a comment fits a keep rule, delete it.
@@ -30,7 +30,7 @@ If you are not sure a comment fits a keep rule, delete it.
 
 ## Suppressions
 
-Type-checker and linter suppressions (`@ts-ignore`, `eslint-disable`, `# type: ignore`, `# noqa`, `#[allow(...)]`, and the like) need a look at the rule they silence. If the rule catches real bugs (type errors, unhandled promises or errors, unsafe dynamic types), remove the suppression and fix the code. When one must stay, prefer the form that fails once the error goes away (such as `@ts-expect-error`), with a reason.
+Type-checker and linter suppressions in your language (the stack skill names the exact syntax) need a look at the rule they silence. If the rule catches real bugs (type errors, unhandled async work or errors, unsafe dynamic types), remove the suppression and fix the code. When one must stay, prefer the form that fails once the error goes away, with a reason.
 
 ## Constraint comments
 

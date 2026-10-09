@@ -21,7 +21,7 @@ const HARNESS_SPECIFIC = [
   [/cursor-team-kit|pstack-models|\.cursor-plugin/, "depends on another plugin's files"],
 ];
 // The base pack stays language-agnostic. Stack-specific detail belongs in a stack pack.
-const STACK_LEAKS = /\b(package\.json|tsconfig|npm|pnpm|yarn|vitest|jest|electron|playwright|react|vite|zod|node_modules)\b/i;
+const STACK_LEAKS = /\b(package\.json|tsconfig|npm|pnpm|yarn|vitest|jest|electron|playwright|react|vite|zod|node_modules|typescript|javascript)\b/i;
 
 const isDir = (p) => existsSync(p) && statSync(p).isDirectory();
 const walk = (dir) => (isDir(dir) ? readdirSync(dir).flatMap((n) => (isDir(join(dir, n)) ? walk(join(dir, n)) : [join(dir, n)])) : []);
