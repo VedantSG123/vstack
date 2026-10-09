@@ -1,0 +1,14 @@
+{
+  "name": "vstack",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent skills for TypeScript and JavaScript projects.",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

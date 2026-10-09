@@ -1,0 +1,16 @@
+{
+  "name": "vstack-core",
+  "version": "0.2.0",
+  "description": "Language-agnostic agent skills for rigorous engineering: a playbook-driven mode, 22 principles, design and blast-radius reviews, TDD, comment cleanup, and unslopped writing.",
+  "author": {
+    "name": "Vedant Ghonge"
+  },
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "principles",
+    "review",
+    "tdd",
+    "writing"
+  ]
+}

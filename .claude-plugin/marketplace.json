@@ -1,0 +1,19 @@
+{
+  "name": "vstack",
+  "description": "Personal agent skills: a language-agnostic core plus stack packs.",
+  "owner": {
+    "name": "Vedant Ghonge"
+  },
+  "plugins": [
+    {
+      "name": "vstack-core",
+      "source": "./packs/core",
+      "description": "Language-agnostic agent skills for rigorous engineering: a playbook-driven mode, 22 principles, design and blast-radius reviews, TDD, comment cleanup, and unslopped writing."
+    },
+    {
+      "name": "vstack-ts",
+      "source": "./packs/ts",
+      "description": "TypeScript and JavaScript stack pack for vstack-core: project detection, TS rules, typed Electron IPC, and real-surface verification for web, Electron, and CLI apps."
+    }
+  ]
+}

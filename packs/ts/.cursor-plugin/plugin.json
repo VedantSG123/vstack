@@ -1,0 +1,20 @@
+{
+  "name": "vstack-ts",
+  "displayName": "vstack-ts",
+  "version": "0.2.0",
+  "description": "TypeScript and JavaScript stack pack for vstack-core: project detection, TS rules, typed Electron IPC, and real-surface verification for web, Electron, and CLI apps.",
+  "author": {
+    "name": "Vedant Ghonge"
+  },
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "electron",
+    "cli",
+    "frontend",
+    "verification"
+  ],
+  "category": "developer-tools",
+  "skills": "./skills/"
+}
