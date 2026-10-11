@@ -42,6 +42,18 @@ Core works on its own in any language. vstack-ts needs core. A future pack such 
 
 The script links each skill directory and never overwrites a skill you already have. Pick one install method per harness, or you will see each skill twice.
 
+**Windows, as linked skills.** Use `install.ps1` from PowerShell 5.1 or 7. It links skill directories with junctions, so it needs no admin rights or Developer Mode. It takes the same harnesses and options as `install.sh`.
+
+```powershell
+.\install.ps1 claude cursor                       # every pack into ~\.claude and ~\.cursor
+.\install.ps1 -Pack core codex                    # core only, into ~\.codex
+.\install.ps1 -Pack ts gemini                     # ts plus the core it needs, into ~\.gemini
+.\install.ps1 -Project ~\work\my-app agents       # into one repo's .agents\
+.\install.ps1 -Uninstall all
+```
+
+If script execution is blocked, run `powershell -ExecutionPolicy Bypass -File .\install.ps1 claude`. Under Git Bash, `install.sh` works only with Developer Mode on. Without it, the script stops instead of copying files.
+
 **Cursor, as plugins.** Each pack has a `.cursor-plugin/plugin.json`, and the repo root has a `.cursor-plugin/marketplace.json` listing both.
 
 ## Use

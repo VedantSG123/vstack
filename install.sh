@@ -21,6 +21,9 @@ Examples:
 USAGE
 }
 
+# Git Bash and Cygwin copy instead of linking unless told otherwise, which breaks live edits and --uninstall.
+case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) export MSYS=winsymlinks:nativestrict CYGWIN=winsymlinks:nativestrict ;; esac
+
 src="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 base="$HOME"
 uninstall=0
@@ -60,7 +63,10 @@ link() {
   ((uninstall)) && return 0
   if [[ -e "$to" ]]; then echo "  skip $to (already exists)" >&2; return 0; fi
   mkdir -p "$(dirname "$to")"
-  ln -s "$from" "$to"
+  ln -s "$from" "$to" 2>/dev/null || {
+    echo "cannot create a symlink at $to. On Windows, enable Developer Mode or run install.ps1 instead." >&2
+    exit 1
+  }
   echo "  linked $to"
 }
 
