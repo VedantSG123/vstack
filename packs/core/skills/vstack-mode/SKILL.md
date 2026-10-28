@@ -16,7 +16,7 @@ Do this once per task, before choosing a playbook. Keep it to a few reads.
 2. **Load the stack skill.** Stack packs ship one skill named `<stack>-stack` (for example `ts-stack` from vstack-ts). If one matching this project's language is available, read it now. It tells you how to detect the toolchain, which commands are the checks, which surface the project ships on, which verify skill to use, and which extra playbooks and language rules apply. If none is installed, work those out from the repo's build files and README.
 3. **Find the checks.** The project's own typecheck, lint, test, build, and run commands. Use the repo's scripts and tools, never a parallel set of your own.
 4. **Classify the surface.** The surface is what users touch, and it decides how you verify: a web UI, a desktop app, a CLI or TUI, a library API, or a service. A repo can have several. Pick the one the change touches.
-5. **Pick the verify skill.** A project-local `verify-<app>` skill comes first. Otherwise use the verify skill the stack skill names for the surface. If none exists and you will verify the same app more than twice, run the **create-verification-skill** skill.
+5. **Pick the verify skill.** A project-local `verify-<app>` skill comes first. Otherwise use the verify skill the stack skill names for the surface. If none exists, run the **create-verification-skill** skill at the end of the task when you will verify the same app more than twice, or when getting it to launch and drive took several attempts (a fixed port, isolated data paths, seeded fixtures). The next run then starts from what you worked out.
 
 ## 2. Non-negotiables
 

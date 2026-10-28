@@ -10,7 +10,7 @@ A passing typecheck says nothing about what the user sees. Run the app, drive th
 ## 1. Launch
 
 - Use the repo's own `dev` script. For a perf, bundle, or "works in dev, broken in prod" question, use the production build and its preview command instead (`vite preview`, `next start`, or serve the build output).
-- Start it on a port the user is not using (pass `--port` or set `PORT`), in the background, and record its PID so you can stop exactly what you started.
+- Start it on a port the user is not using (pass `--port` or set `PORT`), in the background, and record its PID so you can stop exactly what you started. First check whether anything is bound to the default origin, such as a backend's CORS allowlist or a hard-coded URL in an Electron main process. If so, the app only works on that port: use it, and ask the user if their own server holds it.
 - Wait until it is ready: poll the URL until it returns 200, or watch for the "ready" log line. Do not sleep for a fixed time.
 - If a dev server is already running for the user, do not kill or reuse it without saying so.
 
@@ -44,6 +44,9 @@ await browser.close();
 ```
 
 Use stable handles: roles and accessible names (`getByRole`, `getByLabel`), `data-testid`, and URLs. Avoid CSS paths and coordinates.
+
+- **Code and rich text editors** (Monaco, CodeMirror, ProseMirror) keep their real input in a hidden element, and focusing it often does not stick. Click the visible content area (`.monaco-editor .view-lines`, `.cm-content`), then press `Control+A` and call `keyboard.insertText`. If focus missed, `Control+A` selects the whole page instead. Auto-closing brackets and quotes still apply to inserted text, so `x = (` arrives as `x = ()`. Pick inputs whose meaning survives that, and read the editor's content back before asserting on what it produced.
+- **Modal dialogs** the app opens on its own, such as an "edited elsewhere" conflict prompt, block every later click until dismissed, and Escape does not always close them. After any step that can raise one, assert that it appeared and dismiss it with its own button.
 
 ## 3. What to check
 
